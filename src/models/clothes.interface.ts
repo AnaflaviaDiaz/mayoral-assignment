@@ -1,7 +1,7 @@
 export interface Clothes {
   price: number;
   title: string;
-  colors: string[];
   urlImage: string;
+  colors?: string[];
   discountPercentage?: number;
 }
