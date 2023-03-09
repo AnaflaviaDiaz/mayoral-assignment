@@ -8,7 +8,7 @@ const ButtonIcon = styled.button`
   background: transparent;
   border: 0px;
   color: gray;
-  margin: 8px 16px;
+  margin: var(--space1) var(--space2);
 
   &:hover {
     color: black;
@@ -18,20 +18,25 @@ const ButtonIcon = styled.button`
 
 const ButtonContainer = styled.div`
   order: 1;
-  margin: 16px 0;
+  margin: var(--space2) 0;
 
   @media ${devicesSize.mobileL} {
     order: 2;
   }
 `;
 
-export const IncreaseDecreaseProducts = () => {
+interface IncreaseDecreaseProductsProps {
+  handleClickDecrease: () => void;
+  handleClickIncrease: () => void;
+}
+
+export const IncreaseDecreaseProducts = ({ handleClickDecrease, handleClickIncrease }: IncreaseDecreaseProductsProps) => {
   return (
     <ButtonContainer>
-      <ButtonIcon>
+      <ButtonIcon onClick={handleClickDecrease}>
         <FontAwesomeIcon icon={faMinus} size="lg" />
       </ButtonIcon>
-      <ButtonIcon>
+      <ButtonIcon onClick={handleClickIncrease}>
         <FontAwesomeIcon icon={faPlus} size="lg" />
       </ButtonIcon>
     </ButtonContainer>

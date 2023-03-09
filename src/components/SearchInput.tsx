@@ -10,7 +10,7 @@ const SearchForm = styled.form`
   border: 1px solid gray;
   width: 90%;
   border-radius: var(--border-radius-input);
-  order: 2;
+  order: 3;
 
   @media ${devicesSize.mobileL} {
     width: 50%;
@@ -49,7 +49,7 @@ const Separator = styled.div`
 `;
 
 interface SearchProps {
-  handleChange: (event: any) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const SearchInput = ({ handleChange }: SearchProps) => {

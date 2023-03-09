@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-export interface DiscountInterface {
+export interface DiscountProps {
   discountPercentage?: number;
 }
 
 const Discount = styled.span`
-  color: ${(props: DiscountInterface) =>
+  color: ${(props: DiscountProps) =>
     props.discountPercentage ? "red" : "gray"};
-  visibility: ${(props: DiscountInterface) =>
+  visibility: ${(props: DiscountProps) =>
     props.discountPercentage ? "" : "hidden"};
 `;
 
 export const DiscountPrice = ({ discountPercentage, price }: any) => {
-  const getDiscountAmountWithCurrency = (
+  const getFormatDiscountAmount = (
     discountPercentage: number,
     price: number
   ) => {
@@ -26,7 +26,7 @@ export const DiscountPrice = ({ discountPercentage, price }: any) => {
 
   return (
     <Discount discountPercentage={discountPercentage}>
-      {getDiscountAmountWithCurrency(discountPercentage, price)}
+      {getFormatDiscountAmount(discountPercentage, price)}
     </Discount>
   );
 };

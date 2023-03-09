@@ -1,4 +1,4 @@
-export interface Clothes {
+export interface ClothesProps {
   price: number;
   title: string;
   urlImage: string;

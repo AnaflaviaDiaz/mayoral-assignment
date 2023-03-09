@@ -2,8 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 
-import { DiscountInterface, DiscountPrice } from "./DiscountPrice";
-import { Clothes } from "@/models/clothes.interface";
+import { DiscountProps, DiscountPrice } from "./DiscountPrice";
+import { ClothesProps } from "@/models/clothes.props";
+import { devicesSize } from "@/data/device-size";
+
+interface MoreColorsProps {
+  colors?: string[];
+}
 
 const Card = styled.div`
   border: 1px solid var(--primary-color);
@@ -11,40 +16,43 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 200px;
-  margin: 16px 8px;
+  max-width: var(--width-card-mobile);
+  margin: var(--space2) var(--space1);
   border-radius: var(--border-radius-card);
+
+  @media ${devicesSize.mobileL} {
+    max-width: 200px;
+  }
 `;
 
 const Figure = styled.figure`
   margin: 0px;
   width: 100%;
   padding: 0;
+  display: flex;
+  justify-content: center;
 `;
 
 const ImageCard = styled(Image)`
-  width: calc(200px - 16px);
   height: auto;
-  padding: 0 8px;
+  width: inherit;
+  padding: var(--space1);
 `;
 
 const Title = styled.p`
   display: block;
-  max-width: calc(200px - 16px);
+  max-width: calc(var(--width-card-mobile) - var(--space2));
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;
 `;
 
-const Price = styled.p`
+const Price = styled.span`
   color: gray;
-  text-decoration: ${(props: DiscountInterface) =>
+  text-decoration: ${(props: DiscountProps) =>
     props.discountPercentage ? "line-through" : "auto"};
 `;
 
-interface MoreColorsProps {
-  colors?: string[];
-}
 const MoreColorsLabel = styled.p`
   color: gray;
   visibility: ${(props: MoreColorsProps) =>
@@ -58,11 +66,11 @@ const AddButton = styled.button`
   border: 1px solid var(--primary-color);
   border-radius: 4px;
   padding: var(--space1);
-  margin: 8px 0 16px;
+  margin: var(--space1) 0 var(--space2);
   border-radius: var(--border-radius-button);
 `;
 
-interface CardClothesInterface extends Clothes {
+interface CardClothesProps extends ClothesProps {
   children?: React.ReactNode;
   alt: string;
 }
@@ -75,7 +83,7 @@ export const CardClothes = ({
   discountPercentage,
   colors,
   ...props
-}: CardClothesInterface) => {
+}: CardClothesProps) => {
   const getAmountWithCurrency = (price: number) => {
     const amount = price.toString().replace(".", ",");
     return `${amount} €`;

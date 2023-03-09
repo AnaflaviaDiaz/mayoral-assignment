@@ -2,14 +2,21 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { CardClothes } from "@/components/CardClothes";
+import { EmptyResult } from "@/components/EmptyResult";
 import { IncreaseDecreaseProducts } from "@/components/IncreaseDecreaseProducts";
 import { LayoutContent } from "@/components/LayoutContent";
 import { SearchInput } from "@/components/SearchInput";
-import { Clothes } from "@/models/clothes.interface";
-import { debounce } from "@/utils/debounce";
-import { EmptyResult } from "@/components/EmptyResult";
-import { IDLE_TIMEOUT_ON_INPUTS, URL_GET_CLOTHES } from "@/data/common";
+import { Select } from "@/components/Select";
+import {
+  IDLE_TIMEOUT_ON_INPUTS,
+  ORDER_TYPE_IN_PRICE,
+  URL_GET_CLOTHES,
+} from "@/data/common";
 import { devicesSize } from "@/data/device-size";
+import { OrderType } from "@/data/order-type.enum";
+import { ClothesProps } from "@/models/clothes.props";
+import { debounce } from "@/utils/debounce";
+import { getClothesSortedInAscendingAndDescendingOrder } from "@/utils/get-clothes-ascending-and-descending-order";
 
 const ActionHeader = styled.div`
   display: flex;
@@ -30,10 +37,23 @@ const ClothesContent = styled.div`
 `;
 
 export default function Home(props: any) {
-  const [searchText, setSearchText] = useState("");
-  const [filteredClothes, setFilteredClothes] = useState<Clothes[]>([]);
-  const clothes: Clothes[] = props.clothes;
+  const clothes: ClothesProps[] = props.clothes;
 
+  const [searchText, setSearchText] = useState("");
+  const [filteredClothes, setFilteredClothes] =
+    useState<ClothesProps[]>(clothes);
+
+  const onChangeSortType = ({
+    target,
+  }: React.ChangeEvent<HTMLSelectElement>) => {
+    const sortedList = getClothesSortedInAscendingAndDescendingOrder(
+      [...filteredClothes],
+      target.value as OrderType | ""
+    );
+    setFilteredClothes(sortedList);
+  };
+
+  // for Search with text
   useEffect(() => {
     const filterClothes = () => {
       setFilteredClothes([
@@ -57,12 +77,21 @@ export default function Home(props: any) {
           handleChange={debounce(
             ({ target }: React.ChangeEvent<HTMLInputElement>) => {
               setSearchText(target.value);
-              console.log(target.value);
             },
             IDLE_TIMEOUT_ON_INPUTS
           )}
         />
-        <IncreaseDecreaseProducts />
+        <Select
+          title="Ordenar"
+          id="select-asc-desc-price"
+          options={ORDER_TYPE_IN_PRICE}
+          handleChange={onChangeSortType}
+        />
+        {/* TODO:  */}
+        <IncreaseDecreaseProducts
+          handleClickIncrease={() => {}}
+          handleClickDecrease={() => {}}
+        />
       </ActionHeader>
 
       <ClothesContent>
