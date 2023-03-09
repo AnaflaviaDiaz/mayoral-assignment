@@ -1,11 +1,15 @@
+import fsPromises from "fs/promises";
+import path from "path";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+
 import { CardClothes } from "@/components/CardClothes";
 import { IncreaseDecreaseProducts } from "@/components/IncreaseDecreaseProducts";
 import { LayoutContent } from "@/components/LayoutContent";
 import { SearchInput } from "@/components/SearchInput";
-import styled from "styled-components";
-import fsPromises from "fs/promises";
-import path from "path";
 import { Clothes } from "@/models/clothes.interface";
+import { debounce } from "@/utils/debounce";
+import { EmptyResult } from "@/components/EmptyResult";
 
 // import Image from "next/image";
 // import styles from "@/styles/Home.module.css";
@@ -13,37 +17,67 @@ import { Clothes } from "@/models/clothes.interface";
 const ActionHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 8px;
+  margin: var(--space1);
 `;
 
 const ClothesContent = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start !important;
 `;
 
 export default function Home(props: any) {
+  const [searchText, setSearchText] = useState("");
+  const [filteredClothes, setFilteredClothes] = useState<Clothes[]>([]);
   const clothes: Clothes[] = props.clothes;
+
+  useEffect(() => {
+    const filterClothes = () => {
+      setFilteredClothes([
+        ...clothes.filter(
+          ({ title }) => title.toLowerCase().indexOf(searchText) != -1
+        ),
+      ]);
+    };
+
+    if (searchText.trim()) {
+      filterClothes();
+    } else {
+      setFilteredClothes(clothes);
+    }
+  }, [clothes, searchText]);
 
   return (
     <LayoutContent>
       <ActionHeader>
-        <SearchInput />
+        <SearchInput
+          handleChange={debounce(
+            ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+              setSearchText(target.value);
+              console.log(target.value);
+            },
+            1000
+          )}
+        />
         <IncreaseDecreaseProducts />
       </ActionHeader>
 
       <ClothesContent>
-        {clothes.map((item, index) => (
-          <CardClothes
-            key={index}
-            alt={item.title}
-            title={item.title}
-            price={item.price}
-            colors={item.colors}
-            discountPercentage={item.discountPercentage}
-            urlImage={item.urlImage}
-          />
-        ))}
+        {filteredClothes.length ? (
+          filteredClothes.map((item, index) => (
+            <CardClothes
+              key={index}
+              alt={item.title}
+              title={item.title}
+              price={item.price}
+              colors={item.colors}
+              discountPercentage={item.discountPercentage}
+              urlImage={item.urlImage}
+            />
+          ))
+        ) : (
+          <EmptyResult />
+        )}
       </ClothesContent>
     </LayoutContent>
   );
@@ -51,11 +85,11 @@ export default function Home(props: any) {
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "src/data/clothes.json");
-  const jsonData: Buffer = await fsPromises.readFile(filePath);
-  const objectData = JSON.parse(jsonData.toString());
+  const jsonClothesData: Buffer = await fsPromises.readFile(filePath);
+  const objectClothesData = JSON.parse(jsonClothesData.toString());
 
   return {
-    props: objectData,
+    props: objectClothesData,
   };
 }
 

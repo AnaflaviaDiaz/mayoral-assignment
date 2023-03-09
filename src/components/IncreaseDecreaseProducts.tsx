@@ -20,10 +20,10 @@ export const IncreaseDecreaseProducts = () => {
   return (
     <div>
       <ButtonIcon>
-        <FontAwesomeIcon icon={faMinus} />
+        <FontAwesomeIcon icon={faMinus} size="lg" />
       </ButtonIcon>
       <ButtonIcon>
-        <FontAwesomeIcon icon={faPlus} />
+        <FontAwesomeIcon icon={faPlus} size="lg" />
       </ButtonIcon>
     </div>
   );

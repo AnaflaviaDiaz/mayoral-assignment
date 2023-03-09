@@ -13,6 +13,7 @@ const Card = styled.div`
   align-items: center;
   max-width: 200px;
   margin: 16px 8px;
+  border-radius: var(--border-radius-card);
 `;
 
 const Figure = styled.figure`
@@ -51,13 +52,14 @@ const MoreColorsLabel = styled.p`
 `;
 
 const AddButton = styled.button`
-  background-color: #0172ea;
+  background-color: var(--primary-color);
   color: white;
   cursor: pointer;
-  border: 1px solid #0172ea;
+  border: 1px solid var(--primary-color);
   border-radius: 4px;
-  padding: 8px;
+  padding: var(--space1);
   margin: 8px 0 16px;
+  border-radius: var(--border-radius-button);
 `;
 
 export const CardClothes = ({
