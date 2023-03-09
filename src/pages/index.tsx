@@ -9,11 +9,18 @@ import { Clothes } from "@/models/clothes.interface";
 import { debounce } from "@/utils/debounce";
 import { EmptyResult } from "@/components/EmptyResult";
 import { IDLE_TIMEOUT_ON_INPUTS, URL_GET_CLOTHES } from "@/data/common";
+import { devicesSize } from "@/data/device-size";
 
 const ActionHeader = styled.div`
   display: flex;
   justify-content: space-between;
   margin: var(--space1);
+  flex-direction: column;
+  align-items: center;
+
+  @media ${devicesSize.mobileL} {
+    flex-direction: initial;
+  }
 `;
 
 const ClothesContent = styled.div`
