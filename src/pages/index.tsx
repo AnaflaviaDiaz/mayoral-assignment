@@ -43,9 +43,12 @@ export default function Home(props: any) {
   const [filteredClothes, setFilteredClothes] =
     useState<ClothesProps[]>(clothes);
 
+  const [orderType, setOrderType] = useState("");
+
   const onChangeSortType = ({
     target,
   }: React.ChangeEvent<HTMLSelectElement>) => {
+    setOrderType(target.value);
     const sortedList = getClothesSortedInAscendingAndDescendingOrder(
       [...filteredClothes],
       target.value as OrderType | ""
@@ -56,17 +59,26 @@ export default function Home(props: any) {
   // for Search with text
   useEffect(() => {
     const filterClothes = () => {
-      setFilteredClothes([
+      const dataFiltered = [
         ...clothes.filter(
           ({ title }) => title.toLowerCase().indexOf(searchText) != -1
         ),
-      ]);
+      ];
+      const sortedData = getClothesSortedInAscendingAndDescendingOrder(
+        [...dataFiltered],
+        orderType as OrderType | ""
+      );
+      setFilteredClothes(sortedData);
     };
 
     if (searchText.trim()) {
       filterClothes();
     } else {
-      setFilteredClothes(clothes);
+      const sortedData = getClothesSortedInAscendingAndDescendingOrder(
+        [...clothes],
+        orderType as OrderType | ""
+      );
+      setFilteredClothes(sortedData);
     }
   }, [clothes, searchText]);
 
