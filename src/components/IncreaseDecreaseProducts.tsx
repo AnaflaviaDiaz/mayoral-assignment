@@ -7,8 +7,7 @@ const ButtonIcon = styled.button`
   background: transparent;
   border: 0px;
   color: gray;
-  margin: 8px 16px
-  ;
+  margin: 8px 16px;
 
   &:hover {
     color: black;

@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 
-import { CardClothesInterface } from "@/models/card-clothes.interface";
 import { DiscountInterface, DiscountPrice } from "./DiscountPrice";
+import { Clothes } from "@/models/clothes.interface";
 
 const Card = styled.div`
-  border: 1px solid #01b4ea;
+  border: 1px solid var(--primary-color);
   flex: 0 0 50%;
   display: flex;
   flex-direction: column;
@@ -61,6 +61,11 @@ const AddButton = styled.button`
   margin: 8px 0 16px;
   border-radius: var(--border-radius-button);
 `;
+
+interface CardClothesInterface extends Clothes {
+  children?: React.ReactNode;
+  alt: string;
+}
 
 export const CardClothes = ({
   title,

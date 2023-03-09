@@ -1,5 +1,3 @@
-import fsPromises from "fs/promises";
-import path from "path";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -10,9 +8,7 @@ import { SearchInput } from "@/components/SearchInput";
 import { Clothes } from "@/models/clothes.interface";
 import { debounce } from "@/utils/debounce";
 import { EmptyResult } from "@/components/EmptyResult";
-
-// import Image from "next/image";
-// import styles from "@/styles/Home.module.css";
+import { IDLE_TIMEOUT_ON_INPUTS, URL_GET_CLOTHES } from "@/data/common";
 
 const ActionHeader = styled.div`
   display: flex;
@@ -56,7 +52,7 @@ export default function Home(props: any) {
               setSearchText(target.value);
               console.log(target.value);
             },
-            1000
+            IDLE_TIMEOUT_ON_INPUTS
           )}
         />
         <IncreaseDecreaseProducts />
@@ -84,33 +80,8 @@ export default function Home(props: any) {
 }
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), "src/data/clothes.json");
-  const jsonClothesData: Buffer = await fsPromises.readFile(filePath);
-  const objectClothesData = JSON.parse(jsonClothesData.toString());
+  const res = await fetch(URL_GET_CLOTHES);
+  const clothes = await res.json();
 
-  return {
-    props: objectClothesData,
-  };
-}
-
-{
-  /* <div className={styles.description}>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{" "}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div> */
+  return { props: clothes };
 }
