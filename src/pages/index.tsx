@@ -12,7 +12,6 @@ import {
   ORDER_TYPE_IN_PRICE,
   URL_GET_CLOTHES,
 } from "@/data/common";
-import { devicesSize } from "@/data/device-size";
 import { OrderType } from "@/data/order-type.enum";
 import { ClothesProps } from "@/models/clothes.props";
 import { debounce } from "@/utils/debounce";
@@ -25,7 +24,7 @@ const ActionHeader = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media ${devicesSize.mobileL} {
+  @media (min-width: 425px) {
     flex-direction: initial;
   }
 `;
@@ -80,7 +79,7 @@ export default function Home(props: any) {
       );
       setFilteredClothes(sortedData);
     }
-  }, [clothes, searchText]);
+  }, [clothes, searchText, orderType]);
 
   return (
     <LayoutContent>

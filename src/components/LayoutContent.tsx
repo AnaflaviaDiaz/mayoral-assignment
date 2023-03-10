@@ -1,7 +1,11 @@
 import React from "react";
 import Head from "next/head";
 
-export const LayoutContent = ({children, ...props}: any) => {
+interface LayoutContentProps {
+  children: string | JSX.Element | JSX.Element[];
+}
+
+export const LayoutContent = ({ children }: LayoutContentProps) => {
   return (
     <>
       <Head>
@@ -13,9 +17,7 @@ export const LayoutContent = ({children, ...props}: any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </>
   );
 };

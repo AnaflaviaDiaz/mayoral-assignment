@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { devicesSize } from "@/data/device-size";
 
 const ButtonIcon = styled.button`
   background: transparent;
@@ -20,7 +19,7 @@ const ButtonContainer = styled.div`
   order: 1;
   margin: var(--space2) 0;
 
-  @media ${devicesSize.mobileL} {
+  @media (min-width: 425px) {
     order: 2;
   }
 `;
@@ -30,13 +29,16 @@ interface IncreaseDecreaseProductsProps {
   handleClickIncrease: () => void;
 }
 
-export const IncreaseDecreaseProducts = ({ handleClickDecrease, handleClickIncrease }: IncreaseDecreaseProductsProps) => {
+export const IncreaseDecreaseProducts = ({
+  handleClickDecrease,
+  handleClickIncrease,
+}: IncreaseDecreaseProductsProps) => {
   return (
     <ButtonContainer>
-      <ButtonIcon onClick={handleClickDecrease}>
+      <ButtonIcon data-testid="decrease" onClick={handleClickDecrease}>
         <FontAwesomeIcon icon={faMinus} size="lg" />
       </ButtonIcon>
-      <ButtonIcon onClick={handleClickIncrease}>
+      <ButtonIcon data-testid="increase" onClick={handleClickIncrease}>
         <FontAwesomeIcon icon={faPlus} size="lg" />
       </ButtonIcon>
     </ButtonContainer>

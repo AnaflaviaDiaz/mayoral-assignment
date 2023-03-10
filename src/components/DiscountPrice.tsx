@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-export interface DiscountProps {
-  discountPercentage?: number;
-}
-
 const Discount = styled.span`
   color: ${(props: DiscountProps) =>
     props.discountPercentage ? "red" : "gray"};
@@ -12,7 +8,19 @@ const Discount = styled.span`
     props.discountPercentage ? "" : "hidden"};
 `;
 
-export const DiscountPrice = ({ discountPercentage, price }: any) => {
+export interface DiscountProps {
+  discountPercentage?: number;
+}
+
+interface DiscountPriceProps {
+  discountPercentage: number;
+  price: number;
+}
+
+export const DiscountPrice = ({
+  discountPercentage,
+  price,
+}: DiscountPriceProps) => {
   const getFormatDiscountAmount = (
     discountPercentage: number,
     price: number

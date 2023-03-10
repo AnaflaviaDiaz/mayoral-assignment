@@ -4,11 +4,6 @@ import Image from "next/image";
 
 import { DiscountProps, DiscountPrice } from "./DiscountPrice";
 import { ClothesProps } from "@/models/clothes.props";
-import { devicesSize } from "@/data/device-size";
-
-interface MoreColorsProps {
-  colors?: string[];
-}
 
 const Card = styled.div`
   border: 1px solid var(--primary-color);
@@ -20,7 +15,7 @@ const Card = styled.div`
   margin: var(--space2) var(--space1);
   border-radius: var(--border-radius-card);
 
-  @media ${devicesSize.mobileL} {
+  @media (min-width: 425px) {
     max-width: 200px;
   }
 `;
@@ -70,6 +65,9 @@ const AddButton = styled.button`
   border-radius: var(--border-radius-button);
 `;
 
+interface MoreColorsProps {
+  colors?: string[];
+}
 interface CardClothesProps extends ClothesProps {
   children?: React.ReactNode;
   alt: string;
@@ -82,7 +80,6 @@ export const CardClothes = ({
   price,
   discountPercentage,
   colors,
-  ...props
 }: CardClothesProps) => {
   const getAmountWithCurrency = (price: number) => {
     const amount = price.toString().replace(".", ",");
@@ -100,7 +97,10 @@ export const CardClothes = ({
       <Price discountPercentage={discountPercentage}>
         {getAmountWithCurrency(price)}
       </Price>
-      <DiscountPrice discountPercentage={discountPercentage} price={price} />
+      <DiscountPrice
+        discountPercentage={discountPercentage || 0}
+        price={price}
+      />
 
       <MoreColorsLabel colors={colors}>más colores</MoreColorsLabel>
       <AddButton>AÑADIR</AddButton>

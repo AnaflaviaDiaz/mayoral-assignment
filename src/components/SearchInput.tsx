@@ -3,16 +3,13 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-
-import { devicesSize } from "@/data/device-size";
-
 const SearchForm = styled.form`
   border: 1px solid gray;
   width: 90%;
   border-radius: var(--border-radius-input);
   order: 3;
 
-  @media ${devicesSize.mobileL} {
+  @media (min-width: 425px) {
     width: 50%;
     order: 1;
   }
@@ -43,7 +40,7 @@ const Separator = styled.div`
   display: block;
   order: 3;
 
-  @media ${devicesSize.mobileL} {
+  @media (min-width: 425px) {
     display: none;
   }
 `;

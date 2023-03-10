@@ -1,7 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-import { devicesSize } from "@/data/device-size";
+const SelectContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  order: 2;
+
+  @media (min-width: 425px) {
+    order: 2;
+  }
+`;
+
+const SelectInput = styled.select`
+  padding: var(--space1);
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  cursor: pointer;
+`;
 
 export interface SelectOption {
   value: string;
@@ -14,24 +30,6 @@ interface SelectProps {
   handleChange: React.ChangeEventHandler<HTMLSelectElement>;
   title?: string;
 }
-
-const SelectContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  order: 2;
-
-  @media ${devicesSize.mobileL} {
-    order: 2;
-  }
-`;
-
-const SelectInput = styled.select`
-  padding: var(--space1);
-  border: 1px solid gray;
-  border-radius: 4px;
-  margin-bottom: 24px;
-  cursor: pointer;
-`;
 
 export const Select = ({ id, options, title, handleChange, ...props }: SelectProps) => {
   return (

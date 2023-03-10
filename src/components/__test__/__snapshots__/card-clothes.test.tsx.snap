@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardClothes should render with discount 1`] = `
+<div>
+  <div
+    class="sc-17d4765f-0 jNTdvr"
+  >
+    <figure
+      class="sc-17d4765f-1 cXlwSM"
+    >
+      <img
+        alt="Name clothes test"
+        class="sc-17d4765f-2 cFKhRt"
+        data-nimg="1"
+        decoding="async"
+        height="100"
+        src="/_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20220420052509%2F12-04390-082-XL-2%2Fjersey-con-capucha-para-nino_id_12-04390-082-M-2.jpg&w=256&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20220420052509%2F12-04390-082-XL-2%2Fjersey-con-capucha-para-nino_id_12-04390-082-M-2.jpg&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20220420052509%2F12-04390-082-XL-2%2Fjersey-con-capucha-para-nino_id_12-04390-082-M-2.jpg&w=256&q=75 2x"
+        style="color: transparent;"
+        width="100"
+      />
+    </figure>
+    <p
+      class="sc-17d4765f-3 iGrPSx"
+    >
+      Name clothes test
+    </p>
+    <span
+      class="sc-17d4765f-4 iECEui"
+    >
+      31,99 €
+    </span>
+    <span
+      class="sc-4d5621dc-0 eNMlqQ"
+    >
+      15,99 €(50%)
+    </span>
+    <p
+      class="sc-17d4765f-5 gdhSwN"
+    >
+      más colores
+    </p>
+    <button
+      class="sc-17d4765f-6 bGaWor"
+    >
+      AÑADIR
+    </button>
+  </div>
+</div>
+`;
