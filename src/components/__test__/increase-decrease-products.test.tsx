@@ -5,7 +5,7 @@ import { IncreaseDecreaseProducts } from "../IncreaseDecreaseProducts";
 
 describe("IncreaseDecreaseProducts", () => {
   it("should render Increase and Decrease buttons", () => {
-    const mockFn = () => {};
+    const mockFn = jest.fn();
     render(
       <IncreaseDecreaseProducts
         handleClickDecrease={mockFn}

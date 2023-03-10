@@ -5,7 +5,7 @@ import { SearchInput } from "../SearchInput";
 
 describe("SearchInput", () => {
   it("should render SearchInput", () => {
-    render(<SearchInput handleChange={() => {}} />);
+    render(<SearchInput handleChange={jest.fn()} />);
 
     const searchInput = screen.getByPlaceholderText("Buscar");
     expect(searchInput).toBeInTheDocument();

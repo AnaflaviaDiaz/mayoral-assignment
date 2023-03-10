@@ -35,7 +35,11 @@ const ClothesContent = styled.div`
   justify-content: flex-start !important;
 `;
 
-export default function Home(props: any) {
+interface HomeProps {
+  clothes: ClothesProps[];
+}
+
+export default function Home(props: HomeProps) {
   const clothes: ClothesProps[] = props.clothes;
 
   const [searchText, setSearchText] = useState("");
@@ -105,18 +109,10 @@ export default function Home(props: any) {
         />
       </ActionHeader>
 
-      <ClothesContent>
+      <ClothesContent id="clothes-content">
         {filteredClothes.length ? (
           filteredClothes.map((item, index) => (
-            <CardClothes
-              key={index}
-              alt={item.title}
-              title={item.title}
-              price={item.price}
-              colors={item.colors}
-              discountPercentage={item.discountPercentage}
-              urlImage={item.urlImage}
-            />
+            <CardClothes key={index} alt={item.title} {...item} />
           ))
         ) : (
           <EmptyResult />

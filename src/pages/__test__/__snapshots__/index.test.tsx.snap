@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render Home 1`] = `
+<div>
+  <main>
+    <div
+      class="sc-9053cf33-0 fiWNwe"
+    >
+      <form
+        class="sc-daf3ae33-0 giuqHu"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-magnifying-glass sc-daf3ae33-2 dXKwsz"
+          data-icon="magnifying-glass"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            fill="currentColor"
+          />
+        </svg>
+        <input
+          class="sc-daf3ae33-1 hFOwiF"
+          placeholder="Buscar"
+          type="text"
+        />
+      </form>
+      <div
+        class="sc-daf3ae33-3 imvtTr"
+      />
+      <div
+        class="sc-1ea53213-0 dwqDqF"
+      >
+        <label
+          for="select-asc-desc-price"
+        >
+          Ordenar
+        </label>
+        <select
+          class="sc-1ea53213-1 fmlJQZ"
+          id="select-asc-desc-price"
+          name="order-by"
+        >
+          <option
+            value=""
+          >
+            Relevancia
+          </option>
+          <option
+            value="asc"
+          >
+            Precio ascendente
+          </option>
+          <option
+            value="desc"
+          >
+            Precio descendente
+          </option>
+        </select>
+      </div>
+      <div
+        class="sc-65ccca19-1 fgYWty"
+      >
+        <button
+          class="sc-65ccca19-0 cfrvNi"
+          data-testid="decrease"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-minus fa-lg "
+            data-icon="minus"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 256c0 17.7-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <button
+          class="sc-65ccca19-0 cfrvNi"
+          data-testid="increase"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-plus fa-lg "
+            data-icon="plus"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M240 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H176V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H240V80z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="sc-9053cf33-1 bgUXuH"
+      id="clothes-content"
+    >
+      <div
+        class="sc-17d4765f-0 jNTdvr"
+      >
+        <figure
+          class="sc-17d4765f-1 cXlwSM"
+        >
+          <img
+            alt="Camisa manga larga con cuello mao en algodón"
+            class="sc-17d4765f-2 cFKhRt"
+            data-nimg="1"
+            decoding="async"
+            height="100"
+            src="/_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20221019144542%2F23-03168-051-XL-1%2Fcamisa-manga-larga-con-cuello-mao-en-algodon-sostenible-para-nino_id_23-03168-051-M-1.jpg&w=256&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20221019144542%2F23-03168-051-XL-1%2Fcamisa-manga-larga-con-cuello-mao-en-algodon-sostenible-para-nino_id_23-03168-051-M-1.jpg&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20221019144542%2F23-03168-051-XL-1%2Fcamisa-manga-larga-con-cuello-mao-en-algodon-sostenible-para-nino_id_23-03168-051-M-1.jpg&w=256&q=75 2x"
+            style="color: transparent;"
+            width="100"
+          />
+        </figure>
+        <p
+          class="sc-17d4765f-3 iGrPSx"
+        >
+          Camisa manga larga con cuello mao en algodón
+        </p>
+        <span
+          class="sc-17d4765f-4 klwYfl"
+        >
+          23,99 €
+        </span>
+        <span
+          class="sc-4d5621dc-0 dvWhHQ"
+        >
+          0,00 €(0%)
+        </span>
+        <p
+          class="sc-17d4765f-5 hCWycn"
+        >
+          más colores
+        </p>
+        <button
+          class="sc-17d4765f-6 bGaWor"
+        >
+          AÑADIR
+        </button>
+      </div>
+      <div
+        class="sc-17d4765f-0 jNTdvr"
+      >
+        <figure
+          class="sc-17d4765f-1 cXlwSM"
+        >
+          <img
+            alt="Jersey con capucha para niño"
+            class="sc-17d4765f-2 cFKhRt"
+            data-nimg="1"
+            decoding="async"
+            height="100"
+            src="/_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20220420052509%2F12-04390-082-XL-2%2Fjersey-con-capucha-para-nino_id_12-04390-082-M-2.jpg&w=256&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20220420052509%2F12-04390-082-XL-2%2Fjersey-con-capucha-para-nino_id_12-04390-082-M-2.jpg&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20220420052509%2F12-04390-082-XL-2%2Fjersey-con-capucha-para-nino_id_12-04390-082-M-2.jpg&w=256&q=75 2x"
+            style="color: transparent;"
+            width="100"
+          />
+        </figure>
+        <p
+          class="sc-17d4765f-3 iGrPSx"
+        >
+          Jersey con capucha para niño
+        </p>
+        <span
+          class="sc-17d4765f-4 iECEui"
+        >
+          31,99 €
+        </span>
+        <span
+          class="sc-4d5621dc-0 eNMlqQ"
+        >
+          15,99 €(50%)
+        </span>
+        <p
+          class="sc-17d4765f-5 hCWycn"
+        >
+          más colores
+        </p>
+        <button
+          class="sc-17d4765f-6 bGaWor"
+        >
+          AÑADIR
+        </button>
+      </div>
+      <div
+        class="sc-17d4765f-0 jNTdvr"
+      >
+        <figure
+          class="sc-17d4765f-1 cXlwSM"
+        >
+          <img
+            alt="Pantalón largo chino"
+            class="sc-17d4765f-2 cFKhRt"
+            data-nimg="1"
+            decoding="async"
+            height="100"
+            src="/_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20221027060315%2F23-03518-055-XL-3%2Fpantalon-largo-chino-jogger-con-algodon-sostenible-para-nino_id_23-03518-055-M-3.jpg&w=256&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20221027060315%2F23-03518-055-XL-3%2Fpantalon-largo-chino-jogger-con-algodon-sostenible-para-nino_id_23-03518-055-M-3.jpg&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20221027060315%2F23-03518-055-XL-3%2Fpantalon-largo-chino-jogger-con-algodon-sostenible-para-nino_id_23-03518-055-M-3.jpg&w=256&q=75 2x"
+            style="color: transparent;"
+            width="100"
+          />
+        </figure>
+        <p
+          class="sc-17d4765f-3 iGrPSx"
+        >
+          Pantalón largo chino
+        </p>
+        <span
+          class="sc-17d4765f-4 klwYfl"
+        >
+          28,99 €
+        </span>
+        <span
+          class="sc-4d5621dc-0 dvWhHQ"
+        >
+          0,00 €(0%)
+        </span>
+        <p
+          class="sc-17d4765f-5 hCWycn"
+        >
+          más colores
+        </p>
+        <button
+          class="sc-17d4765f-6 bGaWor"
+        >
+          AÑADIR
+        </button>
+      </div>
+      <div
+        class="sc-17d4765f-0 jNTdvr"
+      >
+        <figure
+          class="sc-17d4765f-1 cXlwSM"
+        >
+          <img
+            alt="Sobrecamisa de cuadros para niño"
+            class="sc-17d4765f-2 cFKhRt"
+            data-nimg="1"
+            decoding="async"
+            height="100"
+            src="/_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20220504084901%2F12-04183-080-XL-2%2Fsobrecamisa-de-cuadros-para-nino-ecofriends_id_12-04183-080-M-2.jpg&w=256&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20220504084901%2F12-04183-080-XL-2%2Fsobrecamisa-de-cuadros-para-nino-ecofriends_id_12-04183-080-M-2.jpg&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fassets.mayoral.com%2Fimages%2Ft_auto_img%2Fh_896%2Fv20220504084901%2F12-04183-080-XL-2%2Fsobrecamisa-de-cuadros-para-nino-ecofriends_id_12-04183-080-M-2.jpg&w=256&q=75 2x"
+            style="color: transparent;"
+            width="100"
+          />
+        </figure>
+        <p
+          class="sc-17d4765f-3 iGrPSx"
+        >
+          Sobrecamisa de cuadros para niño
+        </p>
+        <span
+          class="sc-17d4765f-4 iECEui"
+        >
+          33,99 €
+        </span>
+        <span
+          class="sc-4d5621dc-0 eNMlqQ"
+        >
+          17,00 €(50%)
+        </span>
+        <p
+          class="sc-17d4765f-5 hCWycn"
+        >
+          más colores
+        </p>
+        <button
+          class="sc-17d4765f-6 bGaWor"
+        >
+          AÑADIR
+        </button>
+      </div>
+    </div>
+  </main>
+</div>
+`;

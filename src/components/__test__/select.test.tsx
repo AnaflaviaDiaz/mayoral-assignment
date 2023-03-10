@@ -12,7 +12,7 @@ describe("Select", () => {
         id="select-id-test"
         title="Ordenar"
         options={ORDER_TYPE_IN_PRICE}
-        handleChange={() => {}}
+        handleChange={jest.fn()}
       />
     );
 
@@ -33,7 +33,7 @@ describe("Select", () => {
         id="select-id-test"
         title="Ordenar"
         options={ORDER_TYPE_IN_PRICE}
-        handleChange={() => {}}
+        handleChange={jest.fn()}
       />
     );
 
