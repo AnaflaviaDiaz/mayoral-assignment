@@ -1,22 +1,24 @@
+import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
-import Image from "next/image";
 
-import { DiscountProps, DiscountPrice } from "./DiscountPrice";
 import { ClothesProps } from "@/models/clothes.props";
+import { ClothesContentProps } from "@/pages";
+import { DiscountPrice, DiscountProps } from "./DiscountPrice";
 
 const Card = styled.div`
   border: 1px solid var(--primary-color);
-  flex: 0 0 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: var(--width-card-mobile);
+  width: ${(props: ClothesContentProps) =>
+    props.hasIncreaseCardSize ? "25%" : "20%"};
   margin: var(--space2) var(--space1);
   border-radius: var(--border-radius-card);
 
-  @media (min-width: 425px) {
-    max-width: 200px;
+  @media (max-width: 425px) {
+    width: ${(props: ClothesContentProps) =>
+      props.hasIncreaseCardSize ? "300px" : "160px"};
   }
 `;
 
@@ -36,7 +38,7 @@ const ImageCard = styled(Image)`
 
 const Title = styled.p`
   display: block;
-  max-width: calc(var(--width-card-mobile) - var(--space2));
+  max-width: calc(var(--max-width-card-mobile) - var(--space2));
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;
@@ -69,8 +71,9 @@ interface MoreColorsProps {
   colors?: string[];
 }
 interface CardClothesProps extends ClothesProps {
-  children?: React.ReactNode;
   alt: string;
+  children?: React.ReactNode;
+  hasIncreaseCardSize?: boolean;
 }
 
 export const CardClothes = ({
@@ -80,6 +83,7 @@ export const CardClothes = ({
   price,
   discountPercentage,
   colors,
+  hasIncreaseCardSize,
 }: CardClothesProps) => {
   const getAmountWithCurrency = (price: number) => {
     const amount = price.toString().replace(".", ",");
@@ -87,9 +91,9 @@ export const CardClothes = ({
   };
 
   return (
-    <Card>
+    <Card hasIncreaseCardSize={hasIncreaseCardSize!}>
       <Figure>
-        <ImageCard src={urlImage} alt={alt} width={100} height={100} priority />
+        <ImageCard src={urlImage} alt={alt} width={120} height={120} priority />
       </Figure>
 
       <Title>{title}</Title>

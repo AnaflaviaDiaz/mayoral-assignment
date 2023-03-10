@@ -8,7 +8,8 @@
   --border-radius-input: 8px;
   --border-radius-button: 6px;
 
-  --width-card-mobile: 160px;
+  --min-width-card-mobile: 160px;
+  --max-width-card-mobile: 100%;
 
   /* mobileS: `(min-width: 320px)`,
   mobileM: `(min-width: 375px)`,

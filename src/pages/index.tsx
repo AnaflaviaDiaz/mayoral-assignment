@@ -10,7 +10,7 @@ import { Select } from "@/components/Select";
 import {
   IDLE_TIMEOUT_ON_INPUTS,
   ORDER_TYPE_IN_PRICE,
-  URL_GET_CLOTHES,
+  URL_GET_CLOTHES
 } from "@/data/common";
 import { OrderType } from "@/data/order-type.enum";
 import { ClothesProps } from "@/models/clothes.props";
@@ -32,8 +32,22 @@ const ActionHeader = styled.div`
 const ClothesContent = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start !important;
+
+  @media (max-width: 425px) {
+    flex-direction: ${(props: ClothesContentProps) =>
+      props.hasIncreaseCardSize ? "column" : "row"};
+    align-items: ${(props: ClothesContentProps) =>
+      props.hasIncreaseCardSize ? "baseline" : "center"};
+    display: ${(props: ClothesContentProps) =>
+      props.hasIncreaseCardSize ? "block" : "flex"};
+    text-align: ${(props: ClothesContentProps) =>
+      props.hasIncreaseCardSize ? "-webkit-center" : "inherit"};
+  }
 `;
+
+export interface ClothesContentProps {
+  hasIncreaseCardSize: boolean;
+}
 
 interface HomeProps {
   clothes: ClothesProps[];
@@ -43,6 +57,7 @@ export default function Home(props: HomeProps) {
   const clothes: ClothesProps[] = props.clothes;
 
   const [searchText, setSearchText] = useState("");
+  const [hasIncreaseCardSize, setHasIncreaseCardSize] = useState(false);
   const [filteredClothes, setFilteredClothes] =
     useState<ClothesProps[]>(clothes);
 
@@ -102,17 +117,24 @@ export default function Home(props: HomeProps) {
           options={ORDER_TYPE_IN_PRICE}
           handleChange={onChangeSortType}
         />
-        {/* TODO:  */}
         <IncreaseDecreaseProducts
-          handleClickIncrease={() => {}}
-          handleClickDecrease={() => {}}
+          handleClickIncrease={() => setHasIncreaseCardSize(true)}
+          handleClickDecrease={() => setHasIncreaseCardSize(false)}
         />
       </ActionHeader>
 
-      <ClothesContent id="clothes-content">
+      <ClothesContent
+        id="clothes-content"
+        hasIncreaseCardSize={hasIncreaseCardSize}
+      >
         {filteredClothes.length ? (
           filteredClothes.map((item, index) => (
-            <CardClothes key={index} alt={item.title} {...item} />
+            <CardClothes
+              key={index}
+              alt={item.title}
+              hasIncreaseCardSize={hasIncreaseCardSize}
+              {...item}
+            />
           ))
         ) : (
           <EmptyResult />
