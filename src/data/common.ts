@@ -1,5 +1,5 @@
 import { SelectOption } from "@/components/Select";
-import { OrderType } from "./order-type.enum";
+import { OrderType } from "../models/order-type.enum";
 
 export const URL_GET_CLOTHES = "http://localhost:3000/clothes.json";
 export const IDLE_TIMEOUT_ON_INPUTS = 1000;

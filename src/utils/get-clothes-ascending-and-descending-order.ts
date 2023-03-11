@@ -1,5 +1,5 @@
 import { ClothesProps } from "@/models/clothes.props";
-import { OrderType } from "../data/order-type.enum";
+import { OrderType } from "../models/order-type.enum";
 
 export const getClothesSortedInAscendingAndDescendingOrder = (
   list: ClothesProps[],

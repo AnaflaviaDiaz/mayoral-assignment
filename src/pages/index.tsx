@@ -12,7 +12,7 @@ import {
   ORDER_TYPE_IN_PRICE,
   URL_GET_CLOTHES
 } from "@/data/common";
-import { OrderType } from "@/data/order-type.enum";
+import { OrderType } from "@/models/order-type.enum";
 import { ClothesProps } from "@/models/clothes.props";
 import { debounce } from "@/utils/debounce";
 import { getClothesSortedInAscendingAndDescendingOrder } from "@/utils/get-clothes-ascending-and-descending-order";
